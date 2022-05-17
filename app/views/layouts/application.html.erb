@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <%= csrf_meta_tags %>
+   <%= csp_meta_tag %>
+
+   <%= stylesheet_link_tag 'application', media: 'all',
+                                          'data-turbolinks-track': 'reload' %>
+   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+  <body>
+    <header class="navbar navbar-inverse ">
+  <div class="container">
+  <%= link_to "Artist Directory", root_path, id: "logo" %>
+    <nav>
+    <ul class="nav navbar-nav navbar-right">
+        
+        
+        <% if account_signed_in? %>
+        <%=render "layouts/account_nav"%>
+
+        
+      <% else %>
+      <%=render "layouts/public_nav"%>
+      <% end %>
+    </ul>
+   </nav>
+  </div>
+</header>
+    <div class="container">
+   
+      <%= yield %>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<h3><strong><%="#{@posts.size.to_s} ARTISTS FOUND."%></strong></h3>
+<hr>
+<% @posts.each do |post|%>
+    <li><strong>Artist is created by <%=post.account.username%></strong></li>
+    <li><strong>Name of Artist:</strong><%=post.name%></li>
+    <li><strong>Email id:</strong><%=post.email%></li>
+ 
+    <li><%= link_to "View artist", post_path(post.id), class: "btn btn-sm btn-primary" %></li>
+  
+    
+  <p>
+  <span class="post-rating" data-id="<%=post.id%>">Rating :<strong>5 star</strong></span>
+  
+  </p>
+  <strong><u>Reviews</u></strong>
+  
+  <%=render "posts/comments", post: post%>
+    <p>
+    <%=form_for @comment do |f|%>
+      <div class="input-group mb-3">
+      <%=f.hidden_field :post_id,value:post.id%>
+      <%=f.text_field :comment,placeholder: "Add review here",class:"form-control"%>
+      <span><%=f.submit "Post",class:"btn btn-success input-group-text pt-2"%></span> 
+      </div>
+      <%end%>
+  </p>
+  <hr>
+<%end%>
+

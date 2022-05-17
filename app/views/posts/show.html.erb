@@ -1,0 +1,12 @@
+<h3><strong>Artist is created by <%=@post.account.username%></strong></h3>
+<h4><strong>Name of Artist:</strong><%=@post.name%></h4> 
+<h4><strong>Email id:</strong><%=@post.email%></h4>
+<h4><strong>Date of Birth</strong>:<%=@post.dob%></h4> 
+<h4><strong>This Artist is a <%=@post.category%></strong></h4> 
+    <%= embed(@post.url) %>
+<h3><strong><u>Reviews for the Artist</u></strong></h3>
+<hr>
+    <%@post.comments.each do |comment|%>
+        <h4><strong><%=comment.account.username%>:</strong><%=comment.comment%></h4>
+
+        <%end%>

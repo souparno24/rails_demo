@@ -1,0 +1,16 @@
+<li class="nav-item" active>
+    <%= link_to "Dashboard",dashboard_path,class: "nav-link"%>
+</li>
+
+<li class="nav-item" >
+    <%= link_to "New Artist",new_post_path,class: "nav-link"%>
+</li>
+
+<li class="nav-item" >
+    <%= link_to "My profile",profile_path(current_account.username),class: "nav-link"%>
+</li>
+
+<li class="nav-item" >
+    <%= link_to "Sign out",destroy_account_session_path, method: :delete,class: "nav-link"%>
+</li>
+
